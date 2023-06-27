@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   int updatedindex = 0;
   CarouselController buttonCarouselController = CarouselController();
   int currentindex = 0;
-  bool like = false;
   // var defaultTargetPlatform;
   // bool isLoading = false;
   // bool isMobile() {
@@ -141,33 +140,32 @@ class _HomePageState extends State<HomePage> {
                         height: height,
                         width: width,
                         child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: DashBoardModelClass.dashBoardModelClass
-                                .asMap()
-                                .entries
-                                .map((e) => Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          decoration: currentindex == e.key
-                                              ? BoxDecoration(
-                                                  color:
-                                                      const Color(0xffDB6439),
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                )
-                                              : const BoxDecoration(
-                                                  color: Colors.white,
-                                                  shape: BoxShape.circle),
-                                          height: height * 0.015,
-                                          width: currentindex == e.key
-                                              ? width * 0.05
-                                              : width * 0.03,
-                                        ),
-                                      ),
-                                    ))
-                                .toList()),
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: DashBoardModelClass.dashBoardModelClass
+                              .asMap()
+                              .entries
+                              .map(
+                                (e) => Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    decoration: currentindex == e.key
+                                        ? BoxDecoration(
+                                            color: const Color(0xffDB6439),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          )
+                                        : const BoxDecoration(
+                                            color: Colors.white,
+                                            shape: BoxShape.circle),
+                                    height: height * 0.015,
+                                    width: currentindex == e.key
+                                        ? width * 0.05
+                                        : width * 0.03,
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -247,233 +245,232 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(
                       height: height * 0.01,
+                    ),
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
+                    Expanded(
+                      child: SizedBox(
+                        height: height,
+                        width: width,
+                        child: const Column(
+                          children: [
+                            // SizedBox(
+                            //   height: height * 0.1,
+                            //   width: width,
+                            //   child: Center(
+                            //       child: Text(
+                            //     "text",
+                            //     // obj.selectedCategory,
+                            //     style: TextStyle(
+                            //       color: Colors.white,
+                            //       fontSize: width * 0.05,
+                            //     ),
+                            //   )),
+                            // ),
+                            // Expanded(
+                            //   child: SizedBox(
+                            //       height: height,
+                            //       width: width,
+                            //       child: ListView.builder(
+                            //         // physics: AlwaysScrollableScrollPhysics(),
+                            //         key: formKey,
+                            //         // itemCount:
+                            //         // obj.allMenueList.length,
+                            //         controller: scrollcontrollerv,
+
+                            //         itemBuilder: (context, index) {
+                            //           return Padding(
+                            //             padding: EdgeInsets.only(
+                            //               top: height * 0.02,
+                            //             ),
+                            //             child: Card(
+                            //               elevation: 10,
+                            //               shape: RoundedRectangleBorder(
+                            //                 borderRadius:
+                            //                     BorderRadius.circular(15),
+                            //               ),
+                            //               child: Container(
+                            //                 height: height * 0.2,
+                            //                 width: width,
+                            //                 decoration: BoxDecoration(
+                            //                   borderRadius:
+                            //                       BorderRadius.circular(15),
+                            //                   color: Colors.white,
+                            //                 ),
+                            //                 child: Row(
+                            //                   children: [
+                            //                     GestureDetector(
+                            //                       onTap: () {
+                            //                         // Navigator.push(
+                            //                         //   context,
+                            //                         //   MaterialPageRoute(
+                            //                         //     builder:
+                            //                         //         (context) =>
+                            //                         //             DetailPage(
+                            //                         //       model: obj
+                            //                         //               .allMenueList[
+                            //                         //           index],
+                            //                         //     ),
+                            //                         //   ),
+                            //                         // );
+                            //                       },
+                            //                       child: Container(
+                            //                         height: height,
+                            //                         width: width * 0.3,
+                            //                         decoration:
+                            //                             const BoxDecoration(
+                            //                           // image: DecorationImage(
+                            //                           //   fit: BoxFit.cover,
+                            //                           //   image: AssetImage(
+                            //                           //     '${BreakfastModelClass.breakfastModelClass[index].image}',
+                            //                           //   ),
+                            //                           // ),
+                            //                           borderRadius:
+                            //                               BorderRadius.only(
+                            //                                   topLeft: Radius
+                            //                                       .circular(15),
+                            //                                   bottomLeft: Radius
+                            //                                       .circular(
+                            //                                           15)),
+                            //                         ),
+                            //                         child: ClipRRect(
+                            //                           borderRadius:
+                            //                               BorderRadius.circular(
+                            //                                   16),
+                            //                           // child:
+                            //                           //     CachedNetworkImage(
+                            //                           //   progressIndicatorBuilder:
+                            //                           //       (context,
+                            //                           //           url,
+                            //                           //           progress) {
+                            //                           //     return Center(
+                            //                           //       child:
+                            //                           //           CircularProgressIndicator(
+                            //                           //         value:
+                            //                           //             progress.progress,
+                            //                           //       ),
+                            //                           //     );
+                            //                           //   },
+                            //                           //   imageUrl:
+                            //                           //       '${obj.allMenueList[index].image}',
+                            //                           //   fit: BoxFit
+                            //                           //       .cover,
+                            //                           // ),
+                            //                         ),
+                            //                       ),
+                            //                     ),
+                            //                     Expanded(
+                            //                       child: Container(
+                            //                         decoration:
+                            //                             const BoxDecoration(
+                            //                                 borderRadius:
+                            //                                     BorderRadius
+                            //                                         .only(
+                            //                           topRight:
+                            //                               Radius.circular(15),
+                            //                           bottomRight:
+                            //                               Radius.circular(15),
+                            //                         )),
+                            //                         height: height,
+                            //                         width: width,
+                            //                         child: Column(
+                            //                           children: [
+                            //                             SizedBox(
+                            //                               height: height * 0.06,
+                            //                               width: width,
+                            //                               child: Padding(
+                            //                                 padding:
+                            //                                     EdgeInsets.only(
+                            //                                         left:
+                            //                                             width *
+                            //                                                 0.02,
+                            //                                         top: height *
+                            //                                             0.01),
+                            //                                 child: Text(
+                            //                                   "Text",
+                            //                                   //  '${obj.allMenueList[index].name}  ${obj.allMenueList[index].arabicName}',
+                            //                                   style: TextStyle(
+                            //                                     fontSize:
+                            //                                         width *
+                            //                                             0.025,
+                            //                                     fontWeight:
+                            //                                         FontWeight
+                            //                                             .bold,
+                            //                                   ),
+                            //                                   maxLines: 2,
+                            //                                 ),
+                            //                               ),
+                            //                             ),
+                            //                             Expanded(
+                            //                               child: SizedBox(
+                            //                                 height: height,
+                            //                                 width: width,
+                            //                                 child: Padding(
+                            //                                     padding:
+                            //                                         EdgeInsets
+                            //                                             .only(
+                            //                                       left: width *
+                            //                                           0.02,
+                            //                                       right: width *
+                            //                                           0.02,
+                            //                                     ),
+                            //                                     child: Text(
+                            //                                       "text",
+                            //                                       maxLines: 3,
+                            //                                       // '${obj.allMenueList[index].description} ',
+                            //                                       style:
+                            //                                           TextStyle(
+                            //                                         fontSize:
+                            //                                             width *
+                            //                                                 0.025,
+                            //                                       ),
+                            //                                     )),
+                            //                               ),
+                            //                             ),
+                            //                             SizedBox(
+                            //                               height: height * 0.04,
+                            //                               width: width,
+                            //                               child: Padding(
+                            //                                 padding:
+                            //                                     EdgeInsets.only(
+                            //                                         left:
+                            //                                             width *
+                            //                                                 0.02,
+                            //                                         top: height *
+                            //                                             0.01),
+                            //                                 child: Text(
+                            //                                   "text",
+                            //                                   // '${obj.allMenueList[index].price} AED',
+                            //                                   style: TextStyle(
+                            //                                     color: const Color(
+                            //                                         0xffDCC7B6),
+                            //                                     fontSize:
+                            //                                         width *
+                            //                                             0.028,
+                            //                                     fontWeight:
+                            //                                         FontWeight
+                            //                                             .w600,
+                            //                                   ),
+                            //                                 ),
+                            //                               ),
+                            //                             ),
+                            //                           ],
+                            //                         ),
+                            //                       ),
+                            //                     )
+                            //                   ],
+                            //                 ),
+                            //               ),
+                            //             ),
+                            //           );
+                            //         },
+                            //       )),
+                            // )
+                          ],
+                        ),
+                      ),
                     )
-
-                    // SizedBox(
-                    //   height: height * 0.02,
-                    // ),
-                    // Expanded(
-                    //   child: SizedBox(
-                    //     height: height,
-                    //     width: width,
-                    //     child: const Column(
-                    //       children: [
-                    //         // SizedBox(
-                    //         //   height: height * 0.1,
-                    //         //   width: width,
-                    //         //   child: Center(
-                    //         //       child: Text(
-                    //         //     "text",
-                    //         //     // obj.selectedCategory,
-                    //         //     style: TextStyle(
-                    //         //       color: Colors.white,
-                    //         //       fontSize: width * 0.05,
-                    //         //     ),
-                    //         //   )),
-                    //         // ),
-                    //         // Expanded(
-                    //         //   child: SizedBox(
-                    //         //       height: height,
-                    //         //       width: width,
-                    //         //       child: ListView.builder(
-                    //         //         // physics: AlwaysScrollableScrollPhysics(),
-                    //         //         key: formKey,
-                    //         //         // itemCount:
-                    //         //         // obj.allMenueList.length,
-                    //         //         controller: scrollcontrollerv,
-
-                    //         //         itemBuilder: (context, index) {
-                    //         //           return Padding(
-                    //         //             padding: EdgeInsets.only(
-                    //         //               top: height * 0.02,
-                    //         //             ),
-                    //         //             child: Card(
-                    //         //               elevation: 10,
-                    //         //               shape: RoundedRectangleBorder(
-                    //         //                 borderRadius:
-                    //         //                     BorderRadius.circular(15),
-                    //         //               ),
-                    //         //               child: Container(
-                    //         //                 height: height * 0.2,
-                    //         //                 width: width,
-                    //         //                 decoration: BoxDecoration(
-                    //         //                   borderRadius:
-                    //         //                       BorderRadius.circular(15),
-                    //         //                   color: Colors.white,
-                    //         //                 ),
-                    //         //                 child: Row(
-                    //         //                   children: [
-                    //         //                     GestureDetector(
-                    //         //                       onTap: () {
-                    //         //                         // Navigator.push(
-                    //         //                         //   context,
-                    //         //                         //   MaterialPageRoute(
-                    //         //                         //     builder:
-                    //         //                         //         (context) =>
-                    //         //                         //             DetailPage(
-                    //         //                         //       model: obj
-                    //         //                         //               .allMenueList[
-                    //         //                         //           index],
-                    //         //                         //     ),
-                    //         //                         //   ),
-                    //         //                         // );
-                    //         //                       },
-                    //         //                       child: Container(
-                    //         //                         height: height,
-                    //         //                         width: width * 0.3,
-                    //         //                         decoration:
-                    //         //                             const BoxDecoration(
-                    //         //                           // image: DecorationImage(
-                    //         //                           //   fit: BoxFit.cover,
-                    //         //                           //   image: AssetImage(
-                    //         //                           //     '${BreakfastModelClass.breakfastModelClass[index].image}',
-                    //         //                           //   ),
-                    //         //                           // ),
-                    //         //                           borderRadius:
-                    //         //                               BorderRadius.only(
-                    //         //                                   topLeft: Radius
-                    //         //                                       .circular(15),
-                    //         //                                   bottomLeft: Radius
-                    //         //                                       .circular(
-                    //         //                                           15)),
-                    //         //                         ),
-                    //         //                         child: ClipRRect(
-                    //         //                           borderRadius:
-                    //         //                               BorderRadius.circular(
-                    //         //                                   16),
-                    //         //                           // child:
-                    //         //                           //     CachedNetworkImage(
-                    //         //                           //   progressIndicatorBuilder:
-                    //         //                           //       (context,
-                    //         //                           //           url,
-                    //         //                           //           progress) {
-                    //         //                           //     return Center(
-                    //         //                           //       child:
-                    //         //                           //           CircularProgressIndicator(
-                    //         //                           //         value:
-                    //         //                           //             progress.progress,
-                    //         //                           //       ),
-                    //         //                           //     );
-                    //         //                           //   },
-                    //         //                           //   imageUrl:
-                    //         //                           //       '${obj.allMenueList[index].image}',
-                    //         //                           //   fit: BoxFit
-                    //         //                           //       .cover,
-                    //         //                           // ),
-                    //         //                         ),
-                    //         //                       ),
-                    //         //                     ),
-                    //         //                     Expanded(
-                    //         //                       child: Container(
-                    //         //                         decoration:
-                    //         //                             const BoxDecoration(
-                    //         //                                 borderRadius:
-                    //         //                                     BorderRadius
-                    //         //                                         .only(
-                    //         //                           topRight:
-                    //         //                               Radius.circular(15),
-                    //         //                           bottomRight:
-                    //         //                               Radius.circular(15),
-                    //         //                         )),
-                    //         //                         height: height,
-                    //         //                         width: width,
-                    //         //                         child: Column(
-                    //         //                           children: [
-                    //         //                             SizedBox(
-                    //         //                               height: height * 0.06,
-                    //         //                               width: width,
-                    //         //                               child: Padding(
-                    //         //                                 padding:
-                    //         //                                     EdgeInsets.only(
-                    //         //                                         left:
-                    //         //                                             width *
-                    //         //                                                 0.02,
-                    //         //                                         top: height *
-                    //         //                                             0.01),
-                    //         //                                 child: Text(
-                    //         //                                   "Text",
-                    //         //                                   //  '${obj.allMenueList[index].name}  ${obj.allMenueList[index].arabicName}',
-                    //         //                                   style: TextStyle(
-                    //         //                                     fontSize:
-                    //         //                                         width *
-                    //         //                                             0.025,
-                    //         //                                     fontWeight:
-                    //         //                                         FontWeight
-                    //         //                                             .bold,
-                    //         //                                   ),
-                    //         //                                   maxLines: 2,
-                    //         //                                 ),
-                    //         //                               ),
-                    //         //                             ),
-                    //         //                             Expanded(
-                    //         //                               child: SizedBox(
-                    //         //                                 height: height,
-                    //         //                                 width: width,
-                    //         //                                 child: Padding(
-                    //         //                                     padding:
-                    //         //                                         EdgeInsets
-                    //         //                                             .only(
-                    //         //                                       left: width *
-                    //         //                                           0.02,
-                    //         //                                       right: width *
-                    //         //                                           0.02,
-                    //         //                                     ),
-                    //         //                                     child: Text(
-                    //         //                                       "text",
-                    //         //                                       maxLines: 3,
-                    //         //                                       // '${obj.allMenueList[index].description} ',
-                    //         //                                       style:
-                    //         //                                           TextStyle(
-                    //         //                                         fontSize:
-                    //         //                                             width *
-                    //         //                                                 0.025,
-                    //         //                                       ),
-                    //         //                                     )),
-                    //         //                               ),
-                    //         //                             ),
-                    //         //                             SizedBox(
-                    //         //                               height: height * 0.04,
-                    //         //                               width: width,
-                    //         //                               child: Padding(
-                    //         //                                 padding:
-                    //         //                                     EdgeInsets.only(
-                    //         //                                         left:
-                    //         //                                             width *
-                    //         //                                                 0.02,
-                    //         //                                         top: height *
-                    //         //                                             0.01),
-                    //         //                                 child: Text(
-                    //         //                                   "text",
-                    //         //                                   // '${obj.allMenueList[index].price} AED',
-                    //         //                                   style: TextStyle(
-                    //         //                                     color: const Color(
-                    //         //                                         0xffDCC7B6),
-                    //         //                                     fontSize:
-                    //         //                                         width *
-                    //         //                                             0.028,
-                    //         //                                     fontWeight:
-                    //         //                                         FontWeight
-                    //         //                                             .w600,
-                    //         //                                   ),
-                    //         //                                 ),
-                    //         //                               ),
-                    //         //                             ),
-                    //         //                           ],
-                    //         //                         ),
-                    //         //                       ),
-                    //         //                     )
-                    //         //                   ],
-                    //         //                 ),
-                    //         //               ),
-                    //         //             ),
-                    //         //           );
-                    //         //         },
-                    //         //       )),
-                    //         // )
-                    //       ],
-                    //     ),
-                    //   ),
-                    // )
                   ],
                 ),
               ),
