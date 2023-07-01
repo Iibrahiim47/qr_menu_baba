@@ -14,21 +14,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ScrollController scrollcontrollerh = ScrollController();
   final ScrollController scrollcontrollerv = ScrollController();
-
   final formKey = GlobalKey<FormState>();
   int updatedindex = 0;
   CarouselController buttonCarouselController = CarouselController();
   int currentindex = 0;
-  // var defaultTargetPlatform;
-  // bool isLoading = false;
-  // bool isMobile() {
-  //   if (defaultTargetPlatform == TargetPlatform.iOS ||
-  //       defaultTargetPlatform == TargetPlatform.android) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
