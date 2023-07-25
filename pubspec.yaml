@@ -40,6 +40,10 @@ dependencies:
   carousel_slider: ^4.2.1
   intl_phone_number_input:
   flutter_rating_bar: ^4.0.1
+  http: 
+  cached_network_image: ^3.2.3
+
+
 
 dev_dependencies:
   flutter_test:

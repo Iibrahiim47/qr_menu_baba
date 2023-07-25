@@ -1,6 +1,9 @@
 // ignore_for_file: file_names, deprecated_member_use, prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
-import 'package:qr_menu_baba/screerns/homescreen/home_screen.dart';
+import 'package:get/get.dart';
+import 'package:qr_menu_baba/controller/get_controller.dart';
+import 'package:qr_menu_baba/screerns/baba/homescreen/home_screen.dart';
+import 'package:qr_menu_baba/screerns/kout/kout_homescreen/kout_home_screen.dart';
 import 'package:qr_menu_baba/screerns/review_form.dart/review.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 ///////instagram link//////////////////////
-  String instaurl = 'https://instagram.com/so.khor?igshid=OGQ2MjdiOTE=';
+  String instaurl = 'https://www.instagram.com/baba.cafee/';
 
   Future<void> instaapp(String url) async {
     if (await canLaunch(url)) {
@@ -46,6 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
+    Get.put(CategoryController());
+    CategoryController.to.getCatagoriesList();
     super.initState();
   }
 
@@ -56,19 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: const Color(0xffF9C22A),
       body: Stack(children: [
-        Container(
-          decoration: const BoxDecoration(
-              // color: Color(0xff9BAD87),
-              // image: DecorationImage(
-              //   fit: BoxFit.cover,
-              //   image: AssetImage(
-              //     'images/homebg1.jpg',
-              //   ),
-              // ),
-              ),
-          height: height,
-          width: width,
-        ),
         SizedBox(
             height: height,
             width: width,
@@ -77,229 +69,193 @@ class _LoginScreenState extends State<LoginScreen> {
                   left: width * 0.04,
                   right: width * 0.04,
                 ),
-                child: Column(children: [
-                  SizedBox(
-                    height: height * 0.02,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: height * 0.1,
-                        ),
-                        Container(
-                          height: height * 0.2,
-                          width: width * 0.4,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Card(
-                            elevation: 10,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const ReviesPage(),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffDB6439),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                height: height * 0.04,
-                                width: width * 0.08,
-                                child: const Icon(
-                                  Icons.sentiment_satisfied_outlined,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: height * 0.08,
-                        ),
-                        Container(
-                          height: height * 0.1,
-                          width: width * 0.2,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset(
-                            'images/logo_baba_koat.png',
-                          ),
-                        ),
-                        SizedBox(
-                          height: height * 0.01,
-                        ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
 
-                        SizedBox(
-                          height: height * 0.05,
-                          width: width * 0.4,
-                          child: Center(
-                            child: Text(
-                              'Value * View * Victory ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: width * 0.02,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
-                        InkWell(
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Card(
+                        color: const Color(0xffDB6439),
+                        elevation: 10,
+                        shape: const CircleBorder(),
+                        child: InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                builder: (context) => const ReviesPage(),
                               ),
                             );
                           },
                           child: Container(
-                            height: height * 0.07,
-                            width: width * 0.34,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
+                                color: Color(0xffDB6439),
+                                shape: BoxShape.circle),
+                            height: height * 0.04,
+                            width: width * 0.08,
+                            child: const Icon(
+                              Icons.sentiment_satisfied_outlined,
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(
-                                5,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Baba ',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: width * 0.035,
-                                ),
-                              ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            height: height * 0.07,
-                            width: width * 0.34,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(
-                                5,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Baba ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: width * 0.035,
-                                    // color: const Color(0xffDB6439),
-                                    color: Colors.amber),
-                              ),
-                            ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.08,
+                    ),
+                    Container(
+                      height: height * 0.1,
+                      width: width * 0.2,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'images/logo_baba_koat.png',
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.01,
+                    ),
+
+                    SizedBox(
+                      height: height * 0.05,
+                      width: width * 0.4,
+                      child: Center(
+                        child: Text(
+                          'Value * View * Victory ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: width * 0.02,
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: height * 0.07,
-                            width: width * 0.35,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(
-                                5,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Kout',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: width * 0.035,
-                                ),
-                              ),
-                            ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: height * 0.07,
+                        width: width * 0.34,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            5,
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            instaapp(instaurl);
-                          },
-                          child: Container(
-                            height: height * 0.07,
-                            width: width * 0.35,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(
-                                5,
-                              ),
-                            ),
-                            child: Center(
-                                child: Text(
-                              'Instagram',
-                              style: TextStyle(
+                        child: Center(
+                          child: Text(
+                            'Baba ',
+                            style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: width * 0.035,
-                              ),
-                            )),
+                                // color: const Color(0xffDB6439),
+                                color: Colors.amber),
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.03,
-                        ),
-                        // InkWell(
-                        //   onTap: () {
-                        //     reviewslink(googlemapreviewslink);
-                        //   },
-                        //   child: Container(
-                        //     height: height * 0.07,
-                        //     width: width * 0.35,
-                        //     decoration: BoxDecoration(
-                        //       color: Colors.white,
-                        //       borderRadius: BorderRadius.circular(
-                        //         5,
-                        //       ),
-                        //     ),
-                        //     child: Center(
-                        //       child: Text(
-                        //         'Reviews',
-                        //         style: TextStyle(
-                        //           fontWeight: FontWeight.w600,
-                        //           fontSize: width * 0.035,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
+                      ),
                     ),
-                  ),
-                ]))),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const KoutHomePage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: height * 0.07,
+                        width: width * 0.35,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            5,
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Kout',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: width * 0.035,
+                              color: const Color(0xffED1B24),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        instaapp(instaurl);
+                      },
+                      child: Container(
+                        height: height * 0.07,
+                        width: width * 0.35,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            5,
+                          ),
+                        ),
+                        child: Center(
+                            child: Text(
+                          'Instagram',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: width * 0.035,
+                          ),
+                        )),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     reviewslink(googlemapreviewslink);
+                    //   },
+                    //   child: Container(
+                    //     height: height * 0.07,
+                    //     width: width * 0.35,
+                    //     decoration: BoxDecoration(
+                    //       color: Colors.white,
+                    //       borderRadius: BorderRadius.circular(
+                    //         5,
+                    //       ),
+                    //     ),
+                    //     child: Center(
+                    //       child: Text(
+                    //         'Reviews',
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.w600,
+                    //           fontSize: width * 0.035,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
+                ))),
       ]),
     );
   }
